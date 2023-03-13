@@ -8,11 +8,16 @@
     <div class="out-text">
       <p class="sentense">変換された信号がでるよ</p>
       <textarea type="text" placeholder="モールス信号に変換されます" class="out-box" id="textarea2"></textarea>
+      <button @click="">再生</button>
+      <audio controls>
+        <source src="../asstes/sound/morse-code/English/alphabet/a.mp3" type="audio/mp3">
+      </audio>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import {Howl, Howler} from 'howler';
 const morseCodeMap = new Map<string, string>();
 morseCodeMap.set('A', '.-');
 morseCodeMap.set('B', '-...');
@@ -163,10 +168,15 @@ const convert = () => {
 
   console.log(outText(inputText.value));
   // console.log(morseCodeMap.get('あ'));
-  
-  //textarea2に出力
+
   const textarea2 = document.getElementById('textarea2') as HTMLTextAreaElement;
   textarea2.value = outText(inputText.value);
+
+  // const sound =new Howl({
+  //   src: ['../assets/sound/morse-code/English/alphabet/a.mp3'],
+  // })
+
+  // sound.play();
 
 
 };
