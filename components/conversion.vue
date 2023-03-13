@@ -163,8 +163,11 @@ const convert = () => {
 
   console.log(outText(inputText.value));
   // console.log(morseCodeMap.get('あ'));
+  
+  //textarea2に出力
+  const textarea2 = document.getElementById('textarea2') as HTMLTextAreaElement;
+  textarea2.value = outText(inputText.value);
 
-  document.getElementById('textarea2').value = outText(inputText.value);
 
 };
 
